@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Web Development Workshop</title>
+        <style>
+            /* General reset for layout consistency */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            /* Body styling for a dark theme with a welcoming vibe */
+            body {
+                font-family: 'Arial', sans-serif;
+                height: 100vh;
+                background: #0d0d0d; /* Dark background to match the techy feel */
+                color: #ffffff;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+                padding: 20px;
+                text-align: center;
+            }
+
+            /* Main title with bold, welcoming font */
+            h1 {
+                font-size: 3em;
+                margin-bottom: 10px;
+                font-weight: bold;
+                color: #ffcc00; /* Bright yellow for attention */
+            }
+
+            /* Subheading for additional excitement */
+            h2 {
+                font-size: 2em;
+                margin-bottom: 20px;
+                font-style: italic;
+                color: #ffffff;
+            }
+
+            /* Paragraph styling for content sections */
+            p {
+                font-size: 1.2em;
+                margin-bottom: 20px;
+                font-weight: 300;
+            }
+
+            /* List of event details with spacing and neat alignment */
+            ul {
+                list-style-type: none;
+                padding: 0;
+                margin-bottom: 30px;
+            }
+
+            li {
+                margin-bottom: 10px;
+                font-size: 1.1em;
+                color: #f0f0f0;
+            }
+
+            /* Special "greeting" box style */
+            #greeting {
+                background: rgb(255, 255, 0);
+                border: 2px solid black;
+                font-family: "Comic Sans MS", cursive;
+                padding: 10px;
+                width: 300px;
+                margin-top: 20px;
+                border-radius: 8px;
+            }
+
+            /* Digital rain effect for a futuristic vibe */
+            .digital-rain {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                background: linear-gradient(45deg, #0d0d0d, #2c3e50);
+                opacity: 0.3;
+            }
+
+            /* Digital rain falling effect with green color */
+            .rain {
+                position: absolute;
+                top: -100%;
+                color: #00ff00;
+                font-family: 'Courier New', Courier, monospace;
+                font-size: 20px;
+                white-space: nowrap;
+                pointer-events: none;
+            }
+
+            /* Styling for event details section with subtle background */
+            #event-details {
+                background: rgba(0, 0, 0, 0.6);
+                padding: 15px;
+                border-radius: 10px;
+                margin-top: 20px;
+            }
+
+            /* RSVP button with interactive hover effect */
+            .rsvp-button {
+                padding: 10px 20px;
+                background-color: #4CAF50;
+                border: none;
+                color: white;
+                font-size: 18px;
+                text-align: center;
+                text-decoration: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+
+            .rsvp-button:hover {
+                background-color: #45a049;
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <!-- Digital rain effect background -->
+        <div class="digital-rain"></div>
+
+        <!-- Main event title and subheading -->
+        <h1>You're Invited to Our Web Development Workshop!</h1>
+        <h2>Level Up Your Coding Skills!</h2>
+
+        <!-- Event Details -->
+        <p>Here’s everything you need to know:</p>
+        <div id="event-details">
+            <ul>
+                <li><strong>When:</strong> Saturday 11th January 2025</li>
+                <li><strong>Where:</strong> Code Your Future!</li>
+                <li><strong>Time:</strong> 10:00 AM - 4:00 PM</li>
+                <li><strong>What to bring:</strong> Your laptop and a love for coding!</li>
+            </ul>
+        </div>
+
+        <!-- Fun greeting box for a personal touch -->
+        <div id="greeting">
+            <p>We can’t wait to see you there!</p>
+        </div>
+
+        <!-- RSVP button for user interaction -->
+        <a href="#" class="rsvp-button">RSVP Now</a>
+
+        <!-- Digital rain effect JavaScript -->
+        <script>
+            // Function to create falling 'rain' of code-like symbols
+            function createRain() {
+                const rainContainer = document.querySelector('.digital-rain');
+                const width = window.innerWidth;
+                const height = window.innerHeight;
+
+                for (let i = 0; i < 50; i++) {
+                    const rainDrop = document.createElement('div');
+                    rainDrop.classList.add('rain');
+                    rainDrop.innerHTML = '1010101010101010101010'; // Simulated binary/text/code effect
+                    rainDrop.style.left = `${Math.random() * width}px`;
+                    rainDrop.style.animation = `fall ${Math.random() * 3 + 2}s linear infinite`;
+                    rainContainer.appendChild(rainDrop);
+                }
+            }
+
+            // Execute the rain effect when the page loads
+            createRain();
+
+            // Define keyframes for the falling rain animation
+            const style = document.createElement('style');
+            style.innerHTML = `
+                @keyframes fall {
+                    0% {
+                        top: -10%;
+                    }
+                    100% {
+                        top: 100%;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        </script>
+    </body>
+</html>
+
